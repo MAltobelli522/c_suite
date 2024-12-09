@@ -1,0 +1,16 @@
+class TurnManager:
+    def __init__(self, agents):
+        self.agents = agents
+        self.current_index = 0
+        self.history = []
+
+    def get_next_agent(self):
+        agent = self.agents[self.current_index]
+        self.current_index = (self.current_index + 1) % len(self.agents)
+        return agent
+
+    def process_turn(self, context):
+        agent = self.get_next_agent()
+        response = agent.generate_response(context)
+        self.history.append({"agent": agent.name, "response": response})
+        return response
