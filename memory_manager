@@ -1,0 +1,9 @@
+class MemoryManager:
+    def __init__(self):
+        self.memory = []
+
+    def update_memory(self, new_entry):
+        self.memory.append(new_entry)
+
+    def get_context(self):
+        return " ".join(self.memory)
