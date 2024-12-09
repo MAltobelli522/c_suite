@@ -1,0 +1,19 @@
+import openai
+
+class BaseAgent:
+    def __init__(self, name, role, instructions):
+        self.name = name
+        self.role = role
+        self.instructions = instructions
+
+    def generate_response(self, context):
+        """Generates a response based on the agent's role and context."""
+        prompt = f"Role: {self.role}\nInstructions: {self.instructions}\nContext: {context}\nResponse:"
+        response = openai.Completion.create(
+            engine="text-davinci-003",
+            prompt=prompt,
+            max_tokens=150,
+            temperature=0.7
+        )
+        return response["choices"][0]["text"].strip()
+
