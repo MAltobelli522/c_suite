@@ -1,0 +1,5 @@
+class UserInteraction:
+    @staticmethod
+    def process_user_input(user_input, memory_manager):
+        """Incorporates user input into the discussion context."""
+        memory_manager.update_memory(f"User: {user_input}")
