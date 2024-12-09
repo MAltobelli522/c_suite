@@ -1,0 +1,8 @@
+class SynthesisModule:
+    @staticmethod
+    def synthesize(history):
+        """Generate a summary of the discussion."""
+        summary = "Summary of the discussion:\n"
+        for entry in history:
+            summary += f"{entry['agent']}: {entry['response']}\n"
+        return summary
